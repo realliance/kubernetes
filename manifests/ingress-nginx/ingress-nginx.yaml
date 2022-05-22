@@ -1,53 +1,44 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: HelmRepository
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   name: ingress-nginx
-  namespace: flux-system
+  namespace: argocd
 spec:
-  interval: 1m0s
-  url: https://kubernetes.github.io/ingress-nginx
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: ingress-nginx
-  namespace: flux-system
-spec:
-  chart:
-    spec:
-      chart: ingress-nginx
-      sourceRef:
-        kind: HelmRepository
-        name: ingress-nginx
-      version: 4.x.x
-  interval: 1m0s
-  releaseName: ingress-nginx
-  targetNamespace: ingress-nginx
-  values:
-    podSecurityPolicy:
-      enabled: true
-    controller:
-      config:
-        enable-brotli: 'true'
-        hsts: 'true'
-        hsts-max-age: '63072000'
-        hsts-preload: 'true'
-        server-snippet: |
-          ssl_prefer_server_ciphers off;
-        server-tokens: 'false'
-        ssl-early-data: 'false'
-        use-geoip: 'false'
-        use-geoip2: 'false'
-        enable-ocsp: 'true'
-      addHeaders:
-        Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self' data:;
-          base-uri 'none'; form-action 'self'; frame-ancestors 'none';  upgrade-insecure-requests
-        Expect-CT: max-age=63072000, enforce
-        Permissions-Policy: interest-cohort=()
-        Referrer-Policy: no-referrer
-        X-Content-Type-Options: nosniff
-        X-Frame-Options: deny
-        Cross-Origin-Opener-Policy: same-origin
-        Cross-Origin-Resource-Policy: same-origin
-        Cross-Origin-Embedder-Policy: require-corp
+  project: default
+  source:
+    chart: ingress-nginx
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    targetRevision: 4.1.1
+    helm:
+      releaseName: ingress-nginx
+      values: |
+        podSecurityPolicy:
+          enabled: true
+        controller:
+          config:
+            enable-brotli: 'true'
+            hsts: 'true'
+            hsts-max-age: '63072000'
+            hsts-preload: 'true'
+            server-snippet: |
+              ssl_prefer_server_ciphers off;
+            server-tokens: 'false'
+            ssl-early-data: 'false'
+            use-geoip: 'false'
+            use-geoip2: 'false'
+            enable-ocsp: 'true'
+          addHeaders:
+            Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self' data:;
+              base-uri 'none'; form-action 'self'; frame-ancestors 'none';  upgrade-insecure-requests
+            Expect-CT: max-age=63072000, enforce
+            Permissions-Policy: interest-cohort=()
+            Referrer-Policy: no-referrer
+            X-Content-Type-Options: nosniff
+            X-Frame-Options: deny
+            Cross-Origin-Opener-Policy: same-origin
+            Cross-Origin-Resource-Policy: same-origin
+            Cross-Origin-Embedder-Policy: require-corp
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: ingress-nginx
