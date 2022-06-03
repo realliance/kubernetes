@@ -30,7 +30,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: blog-backend
+                name: blog-back
                 port:
                   number: 80
     - host: www.chrismiller.xyz
@@ -47,7 +47,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: blog-backend
+                name: blog-back
                 port:
                   number: 80
 ---
