@@ -25,6 +25,13 @@ spec:
                 name: mysite
                 port:
                   number: 80
+          - path: /blogapi
+            pathType: Prefix
+            backend:
+              service:
+                name: blog-backend
+                port:
+                  number: 80
     - host: www.chrismiller.xyz
       http:
         paths:
@@ -33,6 +40,13 @@ spec:
             backend:
               service:
                 name: mysite
+                port:
+                  number: 80
+          - path: /blogapi
+            pathType: Prefix
+            backend:
+              service:
+                name: blog-backend
                 port:
                   number: 80
 ---
