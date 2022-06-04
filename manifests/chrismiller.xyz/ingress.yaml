@@ -9,6 +9,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/cors-allow-origin: localhost
+    nginx.ingress.kubernetes.io/enable-cors: "true"
 spec:
   tls:
     - hosts:
