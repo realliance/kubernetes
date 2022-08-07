@@ -1,5 +1,3 @@
-podSecurityPolicy:
-  enabled: true
 controller:
   config:
     enable-brotli: 'true'
