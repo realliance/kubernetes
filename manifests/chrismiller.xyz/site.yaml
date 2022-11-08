@@ -8,7 +8,7 @@ metadata:
     app: mysite
     service: web
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 1
   strategy:
     type: RollingUpdate
@@ -36,7 +36,7 @@ spec:
             medium: Memory
       containers:
         - name: mysite
-          image: ghcr.io/christopherjmiller/chrismiller.xyz:1.1.0
+          image: ghcr.io/christopherjmiller/chrismiller.xyz:1.2.0
           ports:
             - containerPort: 8080
               protocol: TCP
