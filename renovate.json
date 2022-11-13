@@ -11,5 +11,8 @@
     ":automergeDigest",
     ":skipStatusChecks",
     "group:allNonMajor"
-  ]
+  ],
+  "kubernetes": {
+    "fileMatch": ["manifests/.+\\.yaml$"]
+  }
 }
