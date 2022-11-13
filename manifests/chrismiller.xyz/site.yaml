@@ -36,7 +36,7 @@ spec:
             medium: Memory
       containers:
         - name: mysite
-          image: ghcr.io/christopherjmiller/chrismiller.xyz:1.2.0
+          image: ghcr.io/christopherjmiller/chrismiller.xyz:1.2.0@sha256:8c33ad59cc11ce24fbef3ba09e3c83ff232eec99c36230a99e57a7ecbf0014e7
           ports:
             - containerPort: 8080
               protocol: TCP
