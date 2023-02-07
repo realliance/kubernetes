@@ -36,7 +36,7 @@ spec:
             medium: Memory
       containers:
         - name: home
-          image: ghcr.io/uf-ace/ace_website:v0.4.0@sha256:d8a921ddbba25bc162aeaa3d1d084d721d7c15f6e943db133f9a22f51e3f8d00
+          image: ghcr.io/uf-ace/ace_website:v0.5.0@sha256:ef845072015f660839f613710e2b8e9294bdf80bbf6d08462a9c80b6f56bf54b
           ports:
             - containerPort: 3000
               protocol: TCP
