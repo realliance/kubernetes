@@ -36,7 +36,7 @@ spec:
             medium: Memory
       containers:
         - name: blog-back
-          image: ghcr.io/christopherjmiller/chatterbox:0.13.0
+          image: ghcr.io/christopherjmiller/chatterbox:0.13.1
           ports:
             - containerPort: 8080
               protocol: TCP
