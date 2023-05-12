@@ -17,6 +17,11 @@ spec:
     postgres: []
   volume:
     size: 3Gi
+  patroni:
+    pg_hba:
+      - local     all  all  trust
+      - host      all  all  all  trust
+      - hostnossl all  all  all  trust
 ---
 apiVersion: v1
 kind: Service
