@@ -5,5 +5,4 @@ namespace: chrismillerxyz
 resources:
   - ingress.yaml
   - site.yaml
-  - blog-backend.yaml
   - psql.yaml
