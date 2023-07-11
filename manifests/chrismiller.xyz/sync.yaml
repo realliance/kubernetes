@@ -24,6 +24,8 @@ spec:
                 - secretRef:
                     name: notion-creds
               env:
+                - name: DATABASE_ID
+                  value: 5118f55805f148f3bba579335ead5bc7
                 - name: DATABASE_DB
                   value: postgres
                 - name: DATABASE_USER
