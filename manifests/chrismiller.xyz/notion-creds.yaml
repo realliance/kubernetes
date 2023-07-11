@@ -1,0 +1,15 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: notion-creds
+  namespace: chrismillerxyz
+spec:
+  encryptedData:
+    NOTION_TOKEN: AgAa8JWWTnOBELe6qVSDcW9uSfIDorX+MBmZzwW28xQLKJsnIcsf6+MjbswtgyHUIsu1rbKp195f1HFkJIeEXYyhBnYLGoE4bPjYNOjAPWZuNB4WsOlrrCUswRjRpDs0DulhP/T0bAS2gvrCgssrUWlOZNfotResAQMPO5D7p+0o2Gvz6uAgR4z2gVGm4QX7maDT1RJV6ior5VwES9quXUcNhgZ5cOH6jrOqfOq8vu8hwVcMUJtibhdVFZKfyzkL+IDUHfeD79lMjHwy0BymbpCPFLuPT/EjKfOZCxio27LjZ4+Bv3kZ1Jz/fhRiRycmJku++83VukkT4fURyCldvV4QZlxU5jebub93BWnTIOOO7drX8/AhH6G7JDzCRv9/xbjQ0su9fSHD2B007HBmTKwas3zZWaSXXYVO4CFhXTWbeOyprf84vFbmLkYYc3pY+1CcE0Of6k2+fmpECqJgLJK5c7v87ZflkBkznYTOXeZFbAAgJzuoRvTfLosjH9QqZg6IvnqEHiBDlhnlYnor67bboz73X1k1NkcSn+unNov6EdolZBGGXIHspFufkVZuDE6QGew7bJ/rSkGqRi1rsmw7W/I3JG72mzNupIMTVCTa+8M1rIVQraxcUG1VGw7ajBnmkC/W6gt2V+R2F+byesiMtk1ikiryDM52qAsLbIuge82RSYPoXE0dqMigmVo4z12hgWCHG0CYZs5e2uTzqYktH/nU6QZOlpkuEAX959Q6yBugOSuRK1T26Ul38lqBId2P3g==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: notion-creds
+      namespace: chrismillerxyz
+

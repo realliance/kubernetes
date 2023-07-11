@@ -6,3 +6,5 @@ resources:
   - ingress.yaml
   - site.yaml
   - psql.yaml
+  - notion-creds.yaml
+  - sync.yaml
