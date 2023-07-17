@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - postgres-operator.yaml
   - applications.yaml
+  - realmic.yaml
