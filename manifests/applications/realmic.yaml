@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: realmic
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/realliance/kubernetes
+    path: manifests/realmic
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: realmic
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
