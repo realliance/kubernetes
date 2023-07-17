@@ -29,6 +29,9 @@ spec:
         - name: tmp
           emptyDir:
             medium: Memory
+        - name: cache
+          emptyDir:
+            medium: Memory
       containers:
         - name: home
           image: ghcr.io/realliance/legacy-realmic-portal:main
@@ -42,6 +45,8 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
+            - mountPath: /var/cache/nginx
+              name: cache
           livenessProbe:
             httpGet:
               path: /health
