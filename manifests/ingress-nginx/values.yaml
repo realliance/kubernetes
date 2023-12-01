@@ -15,6 +15,7 @@ ingress-nginx:
       use-geoip: 'false'
       use-geoip2: 'false'
       enable-ocsp: 'true'
+      allow-snippet-annotations: 'true'
     addHeaders:
       Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self' data:;
         base-uri 'none'; form-action 'self'; frame-ancestors 'none';  upgrade-insecure-requests
