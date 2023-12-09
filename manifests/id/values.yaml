@@ -1,0 +1,33 @@
+authentik:
+  error_reporting:
+    enabled: true
+  postgresql: {}
+
+ingress:
+  ingressClassName: nginx
+  enabled: true
+  tls:
+    - hosts:
+        - id.realliance.net
+      secretName: id-tls
+  hosts:
+    - host: id.realliance.net
+      paths:
+        - path: "/"
+          pathType: Prefix
+postgresql:
+  enabled: true
+redis:
+  enabled: true
+
+email:
+  host: smtp.sendgrid.net
+  port: 587
+  username: apikey
+  use_tls: true
+  timeout: 30
+  from: no-reply@realliance.net
+
+envFrom:
+  - secretKeyRef:
+      name: authentik
