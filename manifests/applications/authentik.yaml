@@ -15,19 +15,19 @@ spec:
       values: |
         authentik:
           error_reporting:
-              enabled: true
-          ingress:
-            ingressClassName: nginx
             enabled: true
-            tls:
-              - hosts:
-                  - id.realliance.net
-                secretName: id-tls
-            hosts:
-              - host: id.realliance.net
-                paths:
-                  - path: "/"
-                    pathType: Prefix
+        ingress:
+          ingressClassName: nginx
+          enabled: true
+          tls:
+            - hosts:
+                - id.realliance.net
+              secretName: id-tls
+          hosts:
+            - host: id.realliance.net
+              paths:
+                - path: "/"
+                  pathType: Prefix
         postgresql:
           enabled: true
         redis:
@@ -51,4 +51,5 @@ spec:
       selfHeal: true
       allowEmpty: true
     syncOptions:
+      - ServerSideApply=true
       - PrunePropagationPolicy=foreground
