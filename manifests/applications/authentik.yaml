@@ -45,7 +45,7 @@ spec:
             secretKeyRef:
               name: authentik
               key: AUTHENTIK_SECRET_KEY
-          AUTHENTIK_POSTGRESQL__USERNAME:
+          AUTHENTIK_POSTGRESQL__USER:
             secretKeyRef:
               name: postgres.acid-authentik.credentials.postgresql.acid.zalan.do
               key: username
