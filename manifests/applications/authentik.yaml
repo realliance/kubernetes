@@ -37,15 +37,22 @@ spec:
           use_tls: true
           timeout: 30
           from: no-reply@realliance.net
+        env:
+          AUTHENTIK_POSTGRESQL__HOST: psql
+          AUTHENTIK_POSTGRESQL__NAME: postgres
         envValueFrom:
           AUTHENTIK_SECRET_KEY:
             secretKeyRef:
               name: authentik
               key: AUTHENTIK_SECRET_KEY
+          AUTHENTIK_POSTGRESQL__USERNAME:
+            secretKeyRef:
+              name: postgres.acid-authentik.credentials.postgresql.acid.zalan.do
+              key: username
           AUTHENTIK_POSTGRESQL__PASSWORD:
             secretKeyRef:
-              name: authentik
-              key: AUTHENTIK_POSTGRESQL__PASSWORD
+              name: postgres.acid-authentik.credentials.postgresql.acid.zalan.do
+              key: password
           AUTHENTIK_EMAIL__PASSWORD:
             secretKeyRef:
               name: authentik
