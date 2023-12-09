@@ -1,0 +1,54 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: authentik
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.goauthentik.io
+    targetRevision: 2023.10.4
+    chart: authentik
+    helm:
+      releaseName: authentik
+      values: |
+        authentik:
+          error_reporting:
+              enabled: true
+          ingress:
+            ingressClassName: nginx
+            enabled: true
+            tls:
+              - hosts:
+                  - id.realliance.net
+                secretName: id-tls
+            hosts:
+              - host: id.realliance.net
+                paths:
+                  - path: "/"
+                    pathType: Prefix
+        postgresql:
+          enabled: true
+        redis:
+          enabled: true
+        email:
+          host: smtp.sendgrid.net
+          port: 587
+          username: apikey
+          use_tls: true
+          timeout: 30
+          from: no-reply@realliance.net
+        envFrom:
+          - secretKeyRef:
+              name: authentik
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: id
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground
