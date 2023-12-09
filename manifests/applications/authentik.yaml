@@ -28,8 +28,6 @@ spec:
               paths:
                 - path: "/"
                   pathType: Prefix
-        postgresql:
-          enabled: true
         redis:
           enabled: true
         email:

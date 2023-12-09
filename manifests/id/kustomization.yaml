@@ -5,3 +5,4 @@ namespace: id
 resources:
   - tls.yaml
   - authentik.yaml
+  - psql.yaml
