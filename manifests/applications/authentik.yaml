@@ -39,9 +39,20 @@ spec:
           use_tls: true
           timeout: 30
           from: no-reply@realliance.net
-        envFrom:
-          - secretKeyRef:
+        envValueFrom:
+          AUTHENTIK_SECRET_KEY:
+            secretKeyRef:
               name: authentik
+              key: AUTHENTIK_SECRET_KEY
+          AUTHENTIK_POSTGRESQL__PASSWORD:
+            secretKeyRef:
+              name: authentik
+              key: AUTHENTIK_POSTGRESQL__PASSWORD
+          AUTHENTIK_EMAIL__PASSWORD:
+            secretKeyRef:
+              name: authentik
+              key: AUTHENTIK_EMAIL__PASSWORD
+
   destination:
     server: https://kubernetes.default.svc
     namespace: id
