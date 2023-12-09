@@ -5,3 +5,4 @@ resources:
   - postgres-operator.yaml
   - applications.yaml
   - realmic.yaml
+  - id.yaml
