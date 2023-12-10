@@ -18,6 +18,8 @@ spec:
             enabled: false
         ingress:
           annotations:
+            nginx.ingress.kubernetes.io/enable-cors: "true"
+            nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:8080, https://profile.realliance.net"
             nginx.ingress.kubernetes.io/configuration-snippet: |
               more_set_headers "Content-Security-Policy: default-src 'none' https://challenges.cloudflare.com; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self' data:; base-uri 'none'; form-action 'self'; frame-ancestors 'none';  upgrade-insecure-requests";
           ingressClassName: nginx
