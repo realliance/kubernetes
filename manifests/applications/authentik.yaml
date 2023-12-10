@@ -35,9 +35,9 @@ spec:
           enabled: true
         email:
           host: smtp.sendgrid.net
-          port: 587
+          port: 465
           username: apikey
-          use_tls: true
+          use_ssl: true
           timeout: 30
           from: no-reply@realliance.net
         env:
