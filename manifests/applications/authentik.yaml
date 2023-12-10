@@ -15,7 +15,7 @@ spec:
       values: |
         authentik:
           error_reporting:
-            enabled: true
+            enabled: false
         ingress:
           annotations:
             nginx.ingress.kubernetes.io/configuration-snippet: |
