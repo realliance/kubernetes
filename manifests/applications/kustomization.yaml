@@ -6,4 +6,5 @@ resources:
   - applications.yaml
   - realmic.yaml
   - id.yaml
+  - community.yaml
   - authentik.yaml
