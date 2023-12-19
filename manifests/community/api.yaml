@@ -51,6 +51,8 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp
+            - mountPath: /.cache
+              name: cache
           env:
             - name: DATABASE_NAME
               value: postgres
