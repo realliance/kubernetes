@@ -61,6 +61,8 @@ spec:
                   - "-c"
                   - "./migrate.sh"
           env:
+            - name: DB
+              value: postgres
             - name: DATABASE_NAME
               value: postgres
             - name: DATABASE_HOST
