@@ -48,8 +48,11 @@ spec:
               port: 3000
             initialDelaySeconds: 3
             periodSeconds: 3
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp
           env:
-            - name: DB
+            - name: DATABASE_NAME
               value: postgres
             - name: DATABASE_HOST
               value: psql
