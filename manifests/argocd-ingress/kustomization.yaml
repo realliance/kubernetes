@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - ingress.yaml
   - dex.yaml
-  - oidc-auth.yaml
