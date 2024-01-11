@@ -34,7 +34,7 @@ spec:
             medium: Memory
       containers:
         - name: api
-          image: ghcr.io/realliance/community-api:main@sha256:c1dfd9933db454e2bbf1b912353179ec68370e6c902884e2b9c3964b1f1c25f1
+          image: ghcr.io/realliance/community-api:main@sha256:b4fcd88456c63d28a06e65f811a41ef6ae29bf6f824ec648ee0591133399a12e
           ports:
             - containerPort: 3000
               protocol: TCP
