@@ -1,0 +1,25 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mc-ingress
+  labels:
+    service: web
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+    - hosts:
+        - mc.realliance.net
+      secretName: mc-tls
+  rules:
+    - host: mc.realliance.net
+      http:
+        paths:
+          - path: /pack
+            pathType: Prefix
+            backend:
+              service:
+                name: pack-serve
+                port:
+                  number: 80

@@ -1,0 +1,17 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mc-tls
+spec:
+  secretName: mc-tls
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  commonName: mc.realliance.net
+  dnsNames:
+    - mc.realliance.net
+  privateKey:
+    rotationPolicy: Always
+    algorithm: ECDSA
+    size: 384
