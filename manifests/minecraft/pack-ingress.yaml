@@ -16,7 +16,7 @@ spec:
     - host: mc.realliance.net
       http:
         paths:
-          - path: /pack
+          - path: /
             pathType: Prefix
             backend:
               service:
