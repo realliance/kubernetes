@@ -34,7 +34,7 @@ spec:
             medium: Memory
       containers:
         - name: pack-serve
-          image: ghcr.io/realliance/mc-modpack-serve:0.2.1
+          image: ghcr.io/realliance/mc-modpack-serve:0.2.2@sha256:7896c16fc5958e382028735d85196764cb73921ae718385c4aea1ae972806d83
           ports:
             - containerPort: 8080
               protocol: TCP
