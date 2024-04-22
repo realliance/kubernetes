@@ -7,5 +7,6 @@ pkgs.mkShell {
     kubectl
     pre-commit
     azure-cli
+    kubeseal
   ];
 }

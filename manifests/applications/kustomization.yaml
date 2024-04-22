@@ -9,3 +9,4 @@ resources:
   - community.yaml
   - authentik.yaml
   - minecraft.yaml
+  - recipes.yaml

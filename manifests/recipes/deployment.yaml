@@ -1,0 +1,81 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipes
+  namespace: recipes
+  labels:
+    app: recipes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recipes
+  template:
+    metadata:
+      labels:
+        app: recipes
+    spec:
+      containers:
+        - name: recipes
+          image: docker.io/vabene1111/recipes:latest
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: pvc
+              subPath: staticfiles
+              mountPath: /opt/recipes/staticfiles
+            - name: pvc
+              subPath: mediafiles
+              mountPath: /opt/recipes/mediafiles
+          env:
+            - name: DEBUG
+              value: "0"
+            - name: ENABLE_SIGNUP
+              value: "0"
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: recipes
+                  key: SECRET_KEY
+            - name: SOCIALACCOUNT_PROVIDERS
+              valueFrom:
+                secretKeyRef:
+                  name: recipes
+                  key: SOCIALACCOUNT_PROVIDERS
+            - name: SOCIAL_PROVIDERS
+              value: allauth.socialaccount.providers.openid_connect
+            - name: DB_ENGINE
+              value: django.db.backends.postgresql
+            - name: POSTGRES_HOST
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres.acid-recipes.credentials.postgresql.acid.zalan.do
+                  key: username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres.acid-recipes.credentials.postgresql.acid.zalan.do
+                  key: password
+            - name: POSTGRES_DB
+              value: postgres
+      volumes:
+        - name: pvc
+          persistentVolumeClaim:
+            claimName: recipes-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recipes
+  namespace: recipes
+spec:
+  selector:
+    app: recipes
+  ports:
+    - protocol: TCP
+      port: 8080

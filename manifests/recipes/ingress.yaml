@@ -1,0 +1,43 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: recipes
+  namespace: recipes
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: 16m
+spec:
+  tls:
+    - hosts:
+        - recipes.realliance.net
+      secretName: recipes-tls
+  rules:
+    - host: recipes.realliance.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: recipes
+                port:
+                  number: 8080
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: recipes-tls
+  namespace: recipes
+spec:
+  secretName: recipes-tls
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  commonName: recipes.realliance.net
+  dnsNames:
+    - recipes.realliance.net
+  privateKey:
+    rotationPolicy: Always
+    algorithm: ECDSA
+    size: 384
