@@ -30,7 +30,7 @@ spec:
               mountPath: /opt/recipes/mediafiles
           env:
             - name: DEBUG
-              value: "0"
+              value: "1"
             - name: ENABLE_SIGNUP
               value: "0"
             - name: SECRET_KEY
