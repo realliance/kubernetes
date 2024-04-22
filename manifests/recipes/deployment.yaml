@@ -46,7 +46,7 @@ spec:
             - name: SOCIAL_PROVIDERS
               value: allauth.socialaccount.providers.openid_connect
             - name: CSRF_TRUSTED_ORIGINS
-              value: "https://*.realliance.net"
+              value: "null"
             - name: DB_ENGINE
               value: django.db.backends.postgresql
             - name: POSTGRES_HOST
