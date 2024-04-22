@@ -3,6 +3,7 @@
 pkgs.mkShell {
   packages = with pkgs; [
     git
+    git-crypt
     kubectl
     pre-commit
     azure-cli
