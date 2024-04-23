@@ -50,10 +50,10 @@ spec:
           resources:
             requests:
               memory: 64Mi
-              cpu: 10m
+              cpu: 50m
             limits:
               memory: 64Mi
-              cpu: 10m
+              cpu: 50m
           env:
             - name: REACT_APP_CHANNEL_ID
               valueFrom:
