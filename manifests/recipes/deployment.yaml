@@ -24,10 +24,10 @@ spec:
           resources:
             requests:
               memory: 400Mi
-              cpu: 100m
+              cpu: 200m
             limits:
               memory: 400Mi
-              cpu: 100m
+              cpu: 200m
           volumeMounts:
             - name: pvc
               subPath: staticfiles
