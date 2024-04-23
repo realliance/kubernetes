@@ -21,6 +21,13 @@ spec:
           image: docker.io/vabene1111/recipes:latest@sha256:18424a56c1f3e6e0e8b2950fa0d2f042074bcc8e4aed6bcd1847539f28f5b320
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              memory: 400Mi
+              cpu: 15m
+            limits:
+              memory: 400Mi
+              cpu: 15m
           volumeMounts:
             - name: pvc
               subPath: staticfiles

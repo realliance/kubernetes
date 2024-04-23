@@ -47,6 +47,13 @@ spec:
             readOnlyRootFilesystem: true
             runAsUser: 101
             runAsGroup: 101
+          resources:
+            requests:
+              memory: 64Mi
+              cpu: 10m
+            limits:
+              memory: 64Mi
+              cpu: 10m
           env:
             - name: REACT_APP_CHANNEL_ID
               valueFrom:
@@ -67,7 +74,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: site
-                  key: REACT_APP_YOUTUBE_API_KEY         
+                  key: REACT_APP_YOUTUBE_API_KEY
 ---
 apiVersion: v1
 kind: Service

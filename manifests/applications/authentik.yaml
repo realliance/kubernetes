@@ -14,6 +14,22 @@ spec:
       releaseName: authentik
       values: |
         authentik:
+          server:
+            resources:
+              requests:
+                cpu: 75m
+                memory: 512Mi
+              limits:
+                cpu: 75m
+                memory: 512Mi
+          worker:
+            resources:
+              requests:
+                cpu: 100m
+                memory: 64Mi
+              limits:
+                cpu: 100m
+                memory: 64Mi
           error_reporting:
             enabled: false
         ingress:
