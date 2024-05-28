@@ -2,15 +2,15 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: mc-tls
+  name: pack-tls
 spec:
-  secretName: mc-tls
+  secretName: pack-tls
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt-prod
-  commonName: mc.realliance.net
+  commonName: pack.realliance.net
   dnsNames:
-    - mc.realliance.net
+    - pack.realliance.net
   privateKey:
     rotationPolicy: Always
     algorithm: ECDSA

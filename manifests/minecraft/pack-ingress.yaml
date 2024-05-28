@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - mc.realliance.net
-      secretName: mc-tls
+        - pack.realliance.net
+      secretName: pack-tls
   rules:
-    - host: mc.realliance.net
+    - host: pack.realliance.net
       http:
         paths:
           - path: /
