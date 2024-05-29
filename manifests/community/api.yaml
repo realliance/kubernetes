@@ -26,6 +26,9 @@ spec:
         runAsUser: 101
         runAsGroup: 101
       volumes:
+        - name: yarn
+          emptyDir:
+            medium: Memory
         - name: tmp
           emptyDir:
             medium: Memory
@@ -56,6 +59,8 @@ spec:
             initialDelaySeconds: 3
             periodSeconds: 3
           volumeMounts:
+            - mountPath: /.yarn
+              name: yarn
             - mountPath: /tmp
               name: tmp
             - mountPath: /.cache
