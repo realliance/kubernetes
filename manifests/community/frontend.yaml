@@ -32,13 +32,6 @@ spec:
         - name: cache
           emptyDir:
             medium: Memory
-      resources:
-        requests:
-          memory: 5Mi
-          cpu: 5m
-        limits:
-          memory: 5Mi
-          cpu: 5m
       containers:
         - name: frontend
           image: ghcr.io/realliance/community-frontend:main@sha256:81fcddbd4afe726a07a31b34356a1e7feba4fa114a8cc13a82a2d989a1ab58b4
@@ -49,6 +42,13 @@ spec:
             readOnlyRootFilesystem: true
             runAsUser: 101
             runAsGroup: 101
+          resources:
+            requests:
+              memory: 15Mi
+              cpu: 10m
+            limits:
+              memory: 15Mi
+              cpu: 10m
           volumeMounts:
             - mountPath: /tmp
               name: tmp
