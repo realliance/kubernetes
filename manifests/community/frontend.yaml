@@ -34,7 +34,7 @@ spec:
             medium: Memory
       containers:
         - name: frontend
-          image: ghcr.io/realliance/community-frontend:main@sha256:6843e2f4d2bd83efd4a6d506808349e2d2d6e39ccb105afda072da6407312749
+          image: ghcr.io/realliance/community-frontend:main@sha256:2b6834ee586623a5e3d08dc23597c657455e188320b1ff5ebea7fde485a0125d
           ports:
             - containerPort: 8080
               protocol: TCP
