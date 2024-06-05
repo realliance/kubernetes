@@ -34,7 +34,7 @@ spec:
             medium: Memory
       containers:
         - name: home
-          image: ghcr.io/realliance/legacy-realmic-portal:main@sha256:232534a5da4bd82688e1d1ddac14b82bdd21502b1442d65435f429206625e14f
+          image: ghcr.io/realliance/legacy-realmic-portal:main@sha256:9bcf7483686b8202c001043048a2b8c2c7e6f1bc8ed34c0c4fb3291f132834c6
           ports:
             - containerPort: 8080
               protocol: TCP
