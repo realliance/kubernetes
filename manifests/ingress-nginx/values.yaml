@@ -14,7 +14,7 @@ ingress-nginx:
       ssl-early-data: 'false'
       use-geoip: 'false'
       use-geoip2: 'false'
-      enable-ocsp: 'true'
+      enable-ocsp: 'false' # https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls.html
       allow-snippet-annotations: 'true'
     addHeaders:
       Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self' data:;
