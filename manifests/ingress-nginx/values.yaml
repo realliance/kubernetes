@@ -16,7 +16,7 @@ ingress-nginx:
       use-geoip2: 'false'
       enable-ocsp: 'false' # https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls.html
       allow-snippet-annotations: 'true'
-      ssl-reject-handshake: 'true'
+      # ssl-reject-handshake: 'true' # Won't work with Azure LB
       http-snippet: |
         proxy_cookie_flags ~ secure httponly;
     addHeaders:
